@@ -1,3 +1,15 @@
+# [1.0.0-beta.2](https://github.com/CrystallizeAPI/klarna/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-09-16)
+
+
+### Features
+
+* new structure, use correct versioning ([b018d1d](https://github.com/CrystallizeAPI/klarna/commit/b018d1d59fe9cf1c914020ffb058cd2167c2cf81))
+
+
+### BREAKING CHANGES
+
+* added new library api structure based on klarna api
+
 # 1.0.0-beta.1 (2020-09-16)
 
 
