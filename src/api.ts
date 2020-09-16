@@ -46,7 +46,7 @@ class Api {
 
         res.on('end', function() {
           const apiResponse: string = Buffer.concat(chunks).toString();
-          
+
           // Check if the response is really from Klarna?
           if (!res?.headers?.['klarna-correlation-id']) {
             console.warn(
