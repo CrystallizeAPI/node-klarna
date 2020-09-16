@@ -53,7 +53,7 @@ jobs:
           CI: true
 
       - name: Release
-        if: github.ref == 'refs/heads/master'
+        if: github.ref != 'refs/heads/master'
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
