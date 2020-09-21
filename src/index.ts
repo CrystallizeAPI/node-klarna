@@ -8,7 +8,7 @@ interface IConfig {
 }
 
 export class Klarna {
-  checkout: ICheckoutV3;
+  checkoutV3: ICheckoutV3;
 
   constructor(config: IConfig) {
     let { apiEndpoint } = config;
@@ -38,6 +38,6 @@ export class Klarna {
       )}`,
     };
 
-    this.checkout = new CheckoutV3(options);
+    this.checkoutV3 = new CheckoutV3(options);
   }
 }

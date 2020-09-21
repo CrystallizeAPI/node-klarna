@@ -35,7 +35,7 @@ describe('checkout v3', () => {
 
     if (username && password) {
       const klarna = new Klarna({ username, password });
-      const dummyOrder = await klarna.checkout.createOrder(dummyOrderObj);
+      const dummyOrder = await klarna.checkoutV3.createOrder(dummyOrderObj);
       expect(dummyOrder).toHaveProperty('statusCode', 201);
     } else {
       expect(username || password).toBeFalsy();
@@ -46,7 +46,7 @@ describe('checkout v3', () => {
   it('should retrieve an order', async () => {    
     if (username && password) {
       const klarna = new Klarna({ username, password });
-      const order = await klarna.checkout.retrieveOrder('f5f35214-eba5-6093-b212-501c3d6038a8');
+      const order = await klarna.checkoutV3.retrieveOrder('f5f35214-eba5-6093-b212-501c3d6038a8');
       expect(order).toHaveProperty('statusCode', 200);
     } else {
       expect(username || password).toBeFalsy();
@@ -81,7 +81,7 @@ describe('checkout v3', () => {
 
     if (username && password) {
       const klarna = new Klarna({ username, password });
-      const order = await klarna.checkout.updateOrder('f5f35214-eba5-6093-b212-501c3d6038a8', dummyUpdateOrderObj);
+      const order = await klarna.checkoutV3.updateOrder('f5f35214-eba5-6093-b212-501c3d6038a8', dummyUpdateOrderObj);
       expect(order).toHaveProperty('statusCode', 200);
     } else {
       expect(username || password).toBeFalsy();
