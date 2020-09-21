@@ -7,6 +7,6 @@ describe('initiate library', () => {
       password: 'password',
     });
     
-    expect(klarna).toHaveProperty('checkout');
+    expect(klarna).toHaveProperty('checkoutV3');
   });
 });

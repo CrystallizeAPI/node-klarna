@@ -1,5 +1,5 @@
-import { IOptions } from './api';
-import { CheckoutV3, ICheckoutV3 } from './resources/checkout-v3';
+import { IOptions } from './http-request';
+import { CheckoutV3, ICheckoutV3 } from './api/checkout-v3';
 
 interface IConfig {
   apiEndpoint?: string;
@@ -7,7 +7,15 @@ interface IConfig {
   password: string;
 }
 
-export class Klarna {
+export interface IKlarnaInstance {
+  checkoutV3: ICheckoutV3;
+}
+
+export interface IKlarnaConstructor {
+  new (config: IConfig): IKlarnaInstance
+}
+
+export class Klarna implements IKlarnaInstance {
   checkoutV3: ICheckoutV3;
 
   constructor(config: IConfig) {
