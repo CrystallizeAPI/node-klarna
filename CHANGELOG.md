@@ -1,3 +1,10 @@
+# [4.0.0-beta.2](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.1...v4.0.0-beta.2) (2020-09-21)
+
+
+### Bug Fixes
+
+* correct naming for checkout function ([ae7b065](https://github.com/CrystallizeAPI/node-klarna/commit/ae7b0659193df60c9e048fa273f98499663f0d5a))
+
 # [4.0.0-beta.1](https://github.com/CrystallizeAPI/klarna/compare/v3.3.2...v4.0.0-beta.1) (2020-09-16)
 
 
