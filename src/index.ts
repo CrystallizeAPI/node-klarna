@@ -12,7 +12,7 @@ export interface IKlarnaInstance {
 }
 
 export interface IKlarnaConstructor {
-  new (config: IConfig): IKlarnaInstance
+  new (config: IConfig): IKlarnaInstance;
 }
 
 export class Klarna implements IKlarnaInstance {

@@ -11,13 +11,11 @@ export interface ICheckoutV3 {
  * Documentation: https://developers.klarna.com/api/#checkout-api
  */
 
-
- export class CheckoutV3 extends HttpRequest {
-  
+export class CheckoutV3 extends HttpRequest {
   /*
     Documentation: https://developers.klarna.com/api/#checkout-api-create-a-new-order  
   */
-  createOrder (body: IOrder): Promise<IOrderResponse> {
+  createOrder(body: IOrder): Promise<IOrderResponse> {
     return this.invoke(`POST`, `/checkout/v3/orders`, body);
   }
 
@@ -46,6 +44,6 @@ export interface ICheckoutV3 {
         '\x1b[0m'
       );
     }
-    return this.invoke(`POST`,`/checkout/v3/orders/${orderId}`, body);
+    return this.invoke(`POST`, `/checkout/v3/orders/${orderId}`, body);
   }
 }

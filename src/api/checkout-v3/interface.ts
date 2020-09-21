@@ -30,15 +30,15 @@ export interface IOrderResponse extends IResponse {
   statusCode: number;
   error?: Error;
   response?: {
-    order_id: string,
-    status: string,
-    purchase_country: string,
-    purchase_currency: string,
-    locale: string,
-    order_amount: number,
-    order_tax_amount: number,
-    order_lines: Array<IOrderLines>,
-    merchant_urls: IMerchantObj,
-    html_snippet: string
-  }
+    order_id: string;
+    status: string;
+    purchase_country: string;
+    purchase_currency: string;
+    locale: string;
+    order_amount: number;
+    order_tax_amount: number;
+    order_lines: Array<IOrderLines>;
+    merchant_urls: IMerchantObj;
+    html_snippet: string;
+  };
 }
