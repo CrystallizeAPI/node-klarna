@@ -3,9 +3,9 @@ import { CheckoutV3, ICheckoutV3 } from './api/checkout-v3';
 import { CustomerTokenV1, ICustomerTokenV1 } from './api/customer-token-v1';
 
 interface IConfig {
-  apiEndpoint?: string;
   username: string;
   password: string;
+  apiEndpoint?: string;
 }
 
 export interface IKlarnaInstance {
