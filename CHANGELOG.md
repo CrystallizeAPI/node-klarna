@@ -1,3 +1,10 @@
+# [4.0.0-beta.6](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.5...v4.0.0-beta.6) (2020-09-22)
+
+
+### Bug Fixes
+
+* **ci:** add commitlint step before fetching cached node_modules ([e63b705](https://github.com/CrystallizeAPI/node-klarna/commit/e63b70561b07fabc1a0181f91bc4c157c2c7580e))
+
 # [4.0.0-beta.5](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.4...v4.0.0-beta.5) (2020-09-22)
 
 
