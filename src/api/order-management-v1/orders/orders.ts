@@ -7,8 +7,8 @@ export interface IOrders {
 }
 
 interface IUpdateMerchantReferenceBody {
-  merchant_reference1: string,
-  merchant_reference2: string,
+  merchant_reference1: string;
+  merchant_reference2: string;
 }
 
 export class Orders extends HttpRequest {
@@ -25,7 +25,7 @@ export class Orders extends HttpRequest {
 
   /**
    * https://developers.klarna.com/api/#order-management-api-cancel-order
-  */
+   */
   cancel(orderId: string): Promise<IResponse> {
     return this.invoke(
       `POST`,
@@ -33,10 +33,10 @@ export class Orders extends HttpRequest {
       {}
     );
   }
-  
+
   /**
    * https://developers.klarna.com/api/#order-management-api-release-remaining-authorization
-  */
+   */
   releaseRemainingAuthorization(orderId: string): Promise<IResponse> {
     return this.invoke(
       `POST`,
@@ -44,16 +44,18 @@ export class Orders extends HttpRequest {
       {}
     );
   }
-  
+
   /**
    * https://developers.klarna.com/api/#order-management-api-update-merchant-references
-  */
-  updateMerchantReference(orderId: string, body: IUpdateMerchantReferenceBody): Promise<IResponse> {
+   */
+  updateMerchantReference(
+    orderId: string,
+    body: IUpdateMerchantReferenceBody
+  ): Promise<IResponse> {
     return this.invoke(
       `PATCH`,
       `/ordermanagement/v1/orders/${orderId}/merchant-references`,
       body
     );
   }
-
 }
