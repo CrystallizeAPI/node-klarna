@@ -1,3 +1,11 @@
+# [4.0.0-beta.3](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.2...v4.0.0-beta.3) (2020-09-22)
+
+
+### Features
+
+* add customer token v1 endpoint helper functions ([0b87176](https://github.com/CrystallizeAPI/node-klarna/commit/0b87176acabc3bf80b1f6c194033165b282ba7ac))
+* add ordermanagement v1 endpoint helper functions ([67b824e](https://github.com/CrystallizeAPI/node-klarna/commit/67b824ebec35135719859360aaee42451dc8daa4))
+
 # [4.0.0-beta.2](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.1...v4.0.0-beta.2) (2020-09-21)
 
 
