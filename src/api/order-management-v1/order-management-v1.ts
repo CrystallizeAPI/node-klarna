@@ -1,10 +1,12 @@
-import { IOrders, Orders } from './orders';
-import { IOptions } from '../../http-request';
+import { Orders, IOrders } from './orders';
 import { Captures, ICaptures } from './captures';
+import { Refunds, IRefunds } from './refunds';
+import { IOptions } from '../../http-request';
 
 export interface IOrdermanagementV1 {
   orders: IOrders;
   captures: ICaptures;
+  refunds: IRefunds;
 }
 
 /**
@@ -13,9 +15,11 @@ export interface IOrdermanagementV1 {
 export class OrdermanagementV1 {
   orders: IOrders;
   captures: ICaptures;
+  refunds: IRefunds;
 
   constructor(options: IOptions) {
     this.orders = new Orders(options);
     this.captures = new Captures(options);
+    this.refunds = new Refunds(options);
   }
 }

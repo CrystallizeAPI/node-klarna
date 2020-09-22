@@ -1,6 +1,6 @@
 import { IResponse } from '../../http-request';
 
-interface IOrderLines {
+export interface IOrderLines {
   name: string;
   quantity: number;
   unit_price: number;
