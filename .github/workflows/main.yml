@@ -1,8 +1,8 @@
 name: CI
 on: [push]
 jobs:
+  ci:
 
-  commitlint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -10,7 +10,6 @@ jobs:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v2
 
-  ci:
     runs-on: ubuntu-latest
 
     steps:
