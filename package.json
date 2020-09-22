@@ -16,11 +16,12 @@
     "build": "tsc",
     "test": "tsdx test",
     "lint": "tsdx lint src",
+    "lint-fix": "tsdx lint src --fix",
     "release": "standard-version"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint src --fix",
+      "pre-commit": "tsdx lint src",
       "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS"
     }
   },
