@@ -11,15 +11,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Commit lint
+        uses: wagoid/commitlint-github-action@v2
+        env:
+          CI: true
+
       - name: Use Node 12
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-
-      - name: Commitlint
-        uses: wagoid/commitlint-github-action@v2
-        env:
-          CI: true
 
       - name: Use cached node_modules
         uses: actions/cache@v2
@@ -34,7 +34,7 @@ jobs:
         env:
           CI: true
 
-      - name: Lint
+      - name: Code lint
         run: yarn lint
         env:
           CI: true
