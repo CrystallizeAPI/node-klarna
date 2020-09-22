@@ -8,16 +8,18 @@ jobs:
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Use Node 12
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
 
-      - name: Commit message Lint
+      - name: Commitlint
         uses: wagoid/commitlint-github-action@v2
-        with:
-          fetch-depth: 0
+        env:
+          CI: true
 
       - name: Use cached node_modules
         uses: actions/cache@v2
