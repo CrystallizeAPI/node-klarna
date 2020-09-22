@@ -16,7 +16,7 @@ interface IMerchantObj {
   push: string;
 }
 
-export interface IOrder {
+export interface IOrderBody {
   purchase_country: string;
   purchase_currency: string;
   locale: string;

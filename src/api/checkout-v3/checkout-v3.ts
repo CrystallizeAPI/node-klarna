@@ -1,21 +1,20 @@
 import { HttpRequest } from '../../http-request';
-import { IOrder, IOrderResponse } from './interface';
+import { IOrderBody, IOrderResponse } from './interface';
 
 export interface ICheckoutV3 {
-  createOrder(body: IOrder): Promise<IOrderResponse>;
+  createOrder(body: IOrderBody): Promise<IOrderResponse>;
   retrieveOrder(orderId: string): Promise<IOrderResponse>;
-  updateOrder(orderId: string, body: IOrder): Promise<IOrderResponse>;
+  updateOrder(orderId: string, body: IOrderBody): Promise<IOrderResponse>;
 }
 
 /*
  * Documentation: https://developers.klarna.com/api/#checkout-api
  */
-
 export class CheckoutV3 extends HttpRequest {
   /*
     Documentation: https://developers.klarna.com/api/#checkout-api-create-a-new-order  
   */
-  createOrder(body: IOrder): Promise<IOrderResponse> {
+  createOrder(body: IOrderBody): Promise<IOrderResponse> {
     return this.invoke(`POST`, `/checkout/v3/orders`, body);
   }
 
@@ -36,7 +35,7 @@ export class CheckoutV3 extends HttpRequest {
   /*
     Documentation: https://developers.klarna.com/api/#checkout-api-update-an-order
   */
-  updateOrder(orderId: string, body: IOrder): Promise<IOrderResponse> {
+  updateOrder(orderId: string, body: IOrderBody): Promise<IOrderResponse> {
     if (!orderId) {
       console.warn(
         '\x1b[33m',
