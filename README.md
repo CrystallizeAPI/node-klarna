@@ -1,6 +1,7 @@
 # node-klarna
 
 [![Build Status](https://github.com/crystallizeApi/node-klarna/workflows/CI/badge.svg)](https://github.com/crystallizeApi/node-klarna/workflows/CI/badge.svg)
+[![Dependency Status](https://david-dm.org/crystallizeApi/node-klarna.svg)](https://david-dm.org/crystallizeApi/node-klarna)
 
 API Wrapper for Klarna with Crystallize helper functions
 
