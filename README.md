@@ -25,14 +25,14 @@ const klarna = new Klarna({ username, password, apiEndpoint });
 
 ```
 
-The library mimicks the Klarna API path making function calls more predictable. 
+The library mimicks the Klarna API path, making function calls more predictable. 
 
 
 Example: 
 
 api path: `/checkout/v3/orders/:order_id` [https://developers.klarna.com/api/#checkout-api-retrieve-an-order](https://developers.klarna.com/api/#checkout-api-retrieve-an-order)
 
-will have a usage like 
+is usable like
 
 ```javascript
 
