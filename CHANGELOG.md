@@ -1,3 +1,16 @@
+# [4.0.0-beta.5](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.4...v4.0.0-beta.5) (2020-09-22)
+
+
+### Bug Fixes
+
+* **lint:** prettier ([0c77e96](https://github.com/CrystallizeAPI/node-klarna/commit/0c77e96d31301007f1312903012d4d0049fc6f2c))
+* add correct capture body interface ([50796cc](https://github.com/CrystallizeAPI/node-klarna/commit/50796ccfd7346606a951af448d62bdd85c787ecf))
+
+
+### Features
+
+* ordermanagement v1 -> add additional helper functions for orders ([113506a](https://github.com/CrystallizeAPI/node-klarna/commit/113506abd06e119d3fa0cd0305c498e70aa4176a))
+
 # [4.0.0-beta.4](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.3...v4.0.0-beta.4) (2020-09-22)
 
 
