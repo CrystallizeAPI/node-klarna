@@ -1,6 +1,10 @@
 import { IOptions } from './http-request';
 import { CheckoutV3, ICheckoutV3 } from './api/checkout-v3';
 import { CustomerTokenV1, ICustomerTokenV1 } from './api/customer-token-v1';
+import {
+  IOrdermanagementV1,
+  OrdermanagementV1,
+} from './api/order-management-v1';
 
 interface IConfig {
   username: string;
@@ -11,6 +15,7 @@ interface IConfig {
 export interface IKlarnaInstance {
   checkoutV3: ICheckoutV3;
   customerTokenV1: ICustomerTokenV1;
+  ordermanagementV1: IOrdermanagementV1;
 }
 
 export interface IKlarnaConstructor {
@@ -20,6 +25,7 @@ export interface IKlarnaConstructor {
 export class Klarna implements IKlarnaInstance {
   checkoutV3: ICheckoutV3;
   customerTokenV1: ICustomerTokenV1;
+  ordermanagementV1: IOrdermanagementV1;
 
   constructor(config: IConfig) {
     let { apiEndpoint } = config;
@@ -51,5 +57,6 @@ export class Klarna implements IKlarnaInstance {
 
     this.checkoutV3 = new CheckoutV3(options);
     this.customerTokenV1 = new CustomerTokenV1(options);
+    this.ordermanagementV1 = new OrdermanagementV1(options);
   }
 }
