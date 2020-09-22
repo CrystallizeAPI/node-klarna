@@ -4,13 +4,6 @@ jobs:
   ci:
 
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v2
-
-    runs-on: ubuntu-latest
 
     steps:
       - name: Begin CI...
@@ -20,6 +13,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+
+      - name: Commit message Lint
+        uses: wagoid/commitlint-github-action@v2
+        with:
+          fetch-depth: 0
 
       - name: Use cached node_modules
         uses: actions/cache@v2
