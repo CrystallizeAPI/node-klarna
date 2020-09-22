@@ -2,6 +2,7 @@ import { HttpRequest, IResponse } from '../../../http-request';
 
 export interface IOrders {
   acknowledge(orderId: string): Promise<IResponse>;
+  cancel(orderId: string): Promise<IResponse>;
 }
 
 export class Orders extends HttpRequest {
@@ -12,6 +13,14 @@ export class Orders extends HttpRequest {
     return this.invoke(
       `POST`,
       `/ordermanagement/v1/orders/${orderId}/acknowledge`,
+      {}
+    );
+  }
+
+  cancel(orderId: string): Promise<IResponse> {
+    return this.invoke(
+      `POST`,
+      `/ordermanagement/v1/orders/${orderId}/cancel`,
       {}
     );
   }
