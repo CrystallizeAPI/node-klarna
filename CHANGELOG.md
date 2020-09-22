@@ -1,3 +1,16 @@
+# [4.0.0-beta.4](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.3...v4.0.0-beta.4) (2020-09-22)
+
+
+### Bug Fixes
+
+* **git-hooks:** make sure pre commit hook is working ([75d3523](https://github.com/CrystallizeAPI/node-klarna/commit/75d352366006fcf7b6ba89497bd6fc36c1fb1ef7))
+
+
+### Features
+
+* ordermanagement v1 -> refunds helper functions added ([c458f8f](https://github.com/CrystallizeAPI/node-klarna/commit/c458f8f3cff99ade46f5ca59457c9fab0d39a201))
+* orders -> cancel order function added ([bea9fd6](https://github.com/CrystallizeAPI/node-klarna/commit/bea9fd6f865e1c590ebca9f50c3b139232d7c4de))
+
 # [4.0.0-beta.3](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.2...v4.0.0-beta.3) (2020-09-22)
 
 
