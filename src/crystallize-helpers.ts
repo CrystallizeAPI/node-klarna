@@ -1,45 +1,50 @@
-import { IMerchantObj, IShippingOption, IOrderBody, IOrderLine } from './api/checkout-v3';
+import {
+  IMerchantObj,
+  IShippingOption,
+  IOrderBody,
+  IOrderLine,
+} from './api/checkout-v3';
 
 interface IDefaults {
-  host_uri: string,
-  purchase_country?: string,
-  purchase_currency?: string,
-  locale?: string,
-  merchant_urls?: IMerchantObj,
-  shipping_options?: Array<IShippingOption>
+  host_uri: string;
+  purchase_country?: string;
+  purchase_currency?: string;
+  locale?: string;
+  merchant_urls?: IMerchantObj;
+  shipping_options?: Array<IShippingOption>;
 }
 
 interface ISubscriptionPlan {
-  id: string,
-  initialPeriod: number,
-  initialPrice: number,
-  name: string,
-  recurringPeriod: number,
-  recurringPrice: number
+  id: string;
+  initialPeriod: number;
+  initialPrice: number;
+  name: string;
+  recurringPeriod: number;
+  recurringPrice: number;
 }
 
 interface ICrystallizeLineItem {
-  id: string,
-  name: string,
-  sku: string,
-  price: number,
-  isDefault: boolean,
-  priceWithoutVat: number,
-  quantity: number,
-  stock: number,
+  id: string;
+  name: string;
+  sku: string;
+  price: number;
+  isDefault: boolean;
+  priceWithoutVat: number;
+  quantity: number;
+  stock: number;
   subscription_plans: Array<ISubscriptionPlan>;
-  variant_id: string,
-  vatAmount: number,
+  variant_id: string;
+  vatAmount: number;
   tax_group: {
-    name: string,
-    percent: number
-  },
+    name: string;
+    percent: number;
+  };
   image: {
-    url: string
-  }
+    url: string;
+  };
 }
 
-function getPackageDefaults(host_uri: string) : IDefaults {
+function getPackageDefaults(host_uri: string): IDefaults {
   return {
     host_uri,
     purchase_country: 'NO',
@@ -67,15 +72,14 @@ function getPackageDefaults(host_uri: string) : IDefaults {
 
 interface IParsedOrderLines {
   order_lines: Array<IOrderLine>;
-  order_tax_amount: number,
-  order_amount: number,
+  order_tax_amount: number;
+  order_amount: number;
 }
 
 export class CrystallizeKlarnaHelpers {
   defaults: IDefaults;
 
   constructor(defaults: IDefaults) {
-
     if (!defaults?.host_uri) {
       console.warn(
         '\x1b[33m',
@@ -83,22 +87,24 @@ export class CrystallizeKlarnaHelpers {
         '\x1b[0m'
       );
     }
-    
+
     this.defaults = defaults;
   }
 
-  getKlarnaOrderLines(lineItems: Array<ICrystallizeLineItem>): IParsedOrderLines {
+  getKlarnaOrderLines(
+    lineItems: Array<ICrystallizeLineItem>
+  ): IParsedOrderLines {
     let order_tax_amount = 0;
     let order_amount = 0;
 
-    const order_lines: Array<IOrderLine> = lineItems.map((item) => {
+    const order_lines: Array<IOrderLine> = lineItems.map(item => {
       order_tax_amount += item.vatAmount * 100;
-  
+
       // Klarna represents numbers as number * 100
       // Ex: 11.59 becomes 1159. 9 becomes 900
       const amount = item.price * 100 * item.quantity;
-      order_amount += amount;    
-  
+      order_amount += amount;
+
       return {
         name: item.name,
         reference: item.sku,
@@ -119,30 +125,45 @@ export class CrystallizeKlarnaHelpers {
     return {
       order_lines,
       order_amount,
-      order_tax_amount
+      order_tax_amount,
     };
-
   }
 
   getOrderBody(lineItems: Array<ICrystallizeLineItem>): IOrderBody {
-    const { order_lines, order_amount, order_tax_amount }: IParsedOrderLines = this.getKlarnaOrderLines(lineItems);
-    const packageDefaults: IDefaults = getPackageDefaults(this.defaults.host_uri);
+    const {
+      order_lines,
+      order_amount,
+      order_tax_amount,
+    }: IParsedOrderLines = this.getKlarnaOrderLines(lineItems);
+    const packageDefaults: IDefaults = getPackageDefaults(
+      this.defaults.host_uri
+    );
 
     // Something to look into: Will the merchant urls or purchase currency be different for separate orders?
     const orderBody: IOrderBody = {
-      purchase_country: this.defaults?.purchase_country || packageDefaults.purchase_currency!,
-      purchase_currency: this.defaults.purchase_currency || packageDefaults.purchase_currency!,
+      purchase_country:
+        this.defaults?.purchase_country || packageDefaults.purchase_currency!,
+      purchase_currency:
+        this.defaults.purchase_currency || packageDefaults.purchase_currency!,
       locale: this.defaults.locale || packageDefaults.locale!,
       merchant_urls: {
-        terms: this.defaults.merchant_urls?.terms || packageDefaults.merchant_urls?.terms!,
-        checkout: this.defaults.merchant_urls?.checkout || packageDefaults.merchant_urls?.checkout!,
-        confirmation: this.defaults?.merchant_urls?.confirmation || packageDefaults?.merchant_urls?.confirmation!,
-        push: this.defaults.merchant_urls?.push || packageDefaults.merchant_urls?.push!
+        terms:
+          this.defaults.merchant_urls?.terms ||
+          packageDefaults.merchant_urls?.terms!,
+        checkout:
+          this.defaults.merchant_urls?.checkout ||
+          packageDefaults.merchant_urls?.checkout!,
+        confirmation:
+          this.defaults?.merchant_urls?.confirmation ||
+          packageDefaults?.merchant_urls?.confirmation!,
+        push:
+          this.defaults.merchant_urls?.push ||
+          packageDefaults.merchant_urls?.push!,
       },
       order_lines,
       order_tax_amount,
-      order_amount
-    }
+      order_amount,
+    };
 
     return orderBody;
   }

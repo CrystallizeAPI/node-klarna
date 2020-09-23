@@ -27,13 +27,13 @@ export interface IOrderBody {
 }
 
 export interface IShippingOption {
-  id: number,
-  name: string,
-  description: string,
-  price: number,
-  tax_amount: number,
-  tax_rate: number,
-  preselected: boolean,
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  tax_amount: number;
+  tax_rate: number;
+  preselected: boolean;
 }
 
 export interface IOrderResponse extends IResponse {
