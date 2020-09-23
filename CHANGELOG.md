@@ -1,3 +1,15 @@
+# [4.0.0-beta.7](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.6...v4.0.0-beta.7) (2020-09-23)
+
+
+### Bug Fixes
+
+* prettier lint ([c8adfb8](https://github.com/CrystallizeAPI/node-klarna/commit/c8adfb871275b1abb8a202de4c97c277c21145a3))
+
+
+### Features
+
+* Added CrystallizeKlarnaHelper class to generate klarnaOrderBody ([4c31808](https://github.com/CrystallizeAPI/node-klarna/commit/4c31808bc78b686b0b414a66061d2f9f7afb71ed))
+
 # [4.0.0-beta.6](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.5...v4.0.0-beta.6) (2020-09-22)
 
 
