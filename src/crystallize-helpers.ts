@@ -54,7 +54,7 @@ function getPackageDefaults(host_uri: string): IDefaults {
       terms: `${host_uri}/salgsbetingelser/`,
       checkout: `${host_uri}/checkout`,
       confirmation: `${host_uri}/confirmation/?orderId={checkout.order.id}`,
-      push: `${process.env.HOST_URI}/klarna/push/{checkout.order.id}`,
+      push: `${host_uri}/klarna/push/{checkout.order.id}`,
     },
     shipping_options: [
       {
