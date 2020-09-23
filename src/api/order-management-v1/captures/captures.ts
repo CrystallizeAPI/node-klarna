@@ -1,5 +1,5 @@
 import { HttpRequest, IResponse } from '../../../http-request';
-import { IOrderLines } from '../../checkout-v3';
+import { IOrderLine } from '../../checkout-v3';
 
 export interface ICaptures {
   capture(orderId: string, body: ICaptureBody): Promise<IResponse>;
@@ -9,7 +9,7 @@ interface ICaptureBody {
   captured_amount: number;
   description?: string;
   reference?: string;
-  order_lines?: Array<IOrderLines>;
+  order_lines?: Array<IOrderLine>;
   shipping_delay?: number;
 }
 

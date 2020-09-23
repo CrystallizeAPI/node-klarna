@@ -1,11 +1,11 @@
 import { HttpRequest, IResponse } from '../../../http-request';
-import { IOrderLines } from '../../checkout-v3';
+import { IOrderLine } from '../../checkout-v3';
 
 interface IRefundBody {
   refunded_amount: number;
   description?: string;
   reference?: string;
-  order_lines: Array<IOrderLines>;
+  order_lines: Array<IOrderLine>;
 }
 
 export interface IRefunds {
