@@ -1,3 +1,10 @@
+# [4.0.0-beta.9](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.8...v4.0.0-beta.9) (2020-09-23)
+
+
+### Bug Fixes
+
+* remove unused props, use correct prop name ([1c95676](https://github.com/CrystallizeAPI/node-klarna/commit/1c956764958733391d7b25cd281248e934e967f1))
+
 # [4.0.0-beta.8](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.7...v4.0.0-beta.8) (2020-09-23)
 
 
