@@ -111,7 +111,7 @@ export class CrystallizeKlarnaHelpers {
         tax_rate: item.tax_group.percent * 100 || 0,
         unit_price: item.price * 100,
         merchant_data: JSON.stringify({
-          productId: item.id
+          productId: item.id,
         }),
         image_url: item.image.url,
         total_amount: amount,
