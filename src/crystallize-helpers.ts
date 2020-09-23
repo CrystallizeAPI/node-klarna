@@ -32,8 +32,7 @@ interface ICrystallizeLineItem {
   priceWithoutVat: number;
   quantity: number;
   stock: number;
-  subscription_plans: Array<ISubscriptionPlan>;
-  variant_id: string;
+  subscriptionPlans: Array<ISubscriptionPlan>;
   vatAmount: number;
   tax_group: {
     name: string;
@@ -112,9 +111,7 @@ export class CrystallizeKlarnaHelpers {
         tax_rate: item.tax_group.percent * 100 || 0,
         unit_price: item.price * 100,
         merchant_data: JSON.stringify({
-          productId: item.id,
-          productVariantId: item.variant_id,
-          taxGroup: item.tax_group,
+          productId: item.id
         }),
         image_url: item.image.url,
         total_amount: amount,
