@@ -1,3 +1,10 @@
+# [4.0.0-beta.8](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.7...v4.0.0-beta.8) (2020-09-23)
+
+
+### Bug Fixes
+
+* use correct host_uri variable ([f185a89](https://github.com/CrystallizeAPI/node-klarna/commit/f185a891f0a8bf1a5d148593acefae75c40fe270))
+
 # [4.0.0-beta.7](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.6...v4.0.0-beta.7) (2020-09-23)
 
 
