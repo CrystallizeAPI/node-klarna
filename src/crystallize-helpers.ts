@@ -44,6 +44,12 @@ interface ICrystallizeLineItem {
   };
 }
 
+interface IParsedOrderLines {
+  order_lines: Array<IOrderLine>;
+  order_tax_amount: number;
+  order_amount: number;
+}
+
 function getPackageDefaults(host_uri: string): IDefaults {
   return {
     host_uri,
@@ -68,12 +74,6 @@ function getPackageDefaults(host_uri: string): IDefaults {
       },
     ],
   };
-}
-
-interface IParsedOrderLines {
-  order_lines: Array<IOrderLine>;
-  order_tax_amount: number;
-  order_amount: number;
 }
 
 export class CrystallizeKlarnaHelpers {
