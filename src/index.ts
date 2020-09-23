@@ -5,6 +5,7 @@ import {
   IOrdermanagementV1,
   OrdermanagementV1,
 } from './api/order-management-v1';
+export * from './crystallize-helpers';
 
 interface IConfig {
   username: string;

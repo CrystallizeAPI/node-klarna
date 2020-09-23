@@ -20,13 +20,22 @@ Initialize the Klarna library
 
 ```javascript 
 
-const { Klarna } = require('@crystallize/node-klarna');
+const { Klarna, CrystallizeKlarnaHelpers } = require('@crystallize/node-klarna');
 
 const klarna = new Klarna({ username, password, apiEndpoint });
+const crystallizeKlarnaHelpers = new CrystallizeKlarnaHelpers({
+  host_uri: 'http://localhost:3000',
+  purchase_country: 'NO',
+  // And other defaults
+})
+
+const orderBody = crystallizeKlarnaHelpers.getOrderBody(crystallizeLineItems); // Returns Klarna compatible order body
+
+const order = klarna.checkoutV3.createOrder(orderBody);
 
 ```
 
-The library mimicks the Klarna API path, making function calls more predictable. 
+The library mimicks the Klarna API path, making module usability more predictable. 
 
 
 Example: 
