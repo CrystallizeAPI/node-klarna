@@ -18,8 +18,7 @@ export class Orders extends HttpRequest {
   acknowledge(orderId: string): Promise<IResponse> {
     return this.invoke(
       `POST`,
-      `/ordermanagement/v1/orders/${orderId}/acknowledge`,
-      {}
+      `/ordermanagement/v1/orders/${orderId}/acknowledge`
     );
   }
 

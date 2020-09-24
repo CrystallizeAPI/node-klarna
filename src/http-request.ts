@@ -62,7 +62,7 @@ export class HttpRequest {
             } else {
               resolve({
                 statusCode: res.statusCode,
-                response: JSON.parse(apiResponse),
+                response: apiResponse !== '' && JSON.parse(apiResponse),
               });
             }
           }
