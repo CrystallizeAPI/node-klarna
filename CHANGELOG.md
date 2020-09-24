@@ -1,3 +1,10 @@
+# [4.0.0-beta.10](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.9...v4.0.0-beta.10) (2020-09-24)
+
+
+### Bug Fixes
+
+* handle empty string response from klarna api ([4b2baa3](https://github.com/CrystallizeAPI/node-klarna/commit/4b2baa357b4917e6312ad9ef5d780eaedc476b55))
+
 # [4.0.0-beta.9](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0-beta.8...v4.0.0-beta.9) (2020-09-23)
 
 
