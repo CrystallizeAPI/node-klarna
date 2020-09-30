@@ -1,3 +1,16 @@
+# [4.1.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.1...v4.1.0) (2020-09-30)
+
+
+### Bug Fixes
+
+* recurring property should be optional based on klarna api docs ([64da0d7](https://github.com/CrystallizeAPI/node-klarna/commit/64da0d742e95cae9d4cc6cba7e8e36ffd8ed7837))
+* **lint:** prettier ([3aecc41](https://github.com/CrystallizeAPI/node-klarna/commit/3aecc413e7d59c8675b6f9c26afd73b48c534495))
+
+
+### Features
+
+* add recurring field for orders generated via crystallize helper functions ([4545421](https://github.com/CrystallizeAPI/node-klarna/commit/454542111e5d33d22679e77ce7d2b2028bad233f))
+
 ## [4.0.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0...v4.0.1) (2020-09-30)
 
 
