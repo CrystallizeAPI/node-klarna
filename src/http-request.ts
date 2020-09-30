@@ -9,10 +9,10 @@ export interface IOptions {
 export interface IResponse {
   statusCode: number;
   error?: Error;
-  response?: {} | null;
+  response?: any;
 }
 
-class Api {
+export class HttpRequest {
   authorization: string;
   hostname: string;
 
@@ -59,11 +59,12 @@ class Api {
           if (res.statusCode) {
             if (res.statusCode < 200 || res.statusCode >= 300) {
               reject({ statusCode: res.statusCode, error: apiResponse });
+            } else {
+              resolve({
+                statusCode: res.statusCode,
+                response: apiResponse !== '' && JSON.parse(apiResponse),
+              });
             }
-            resolve({
-              statusCode: res.statusCode,
-              response: JSON.parse(apiResponse),
-            });
           }
         });
       });
@@ -81,5 +82,3 @@ class Api {
     });
   }
 }
-
-export default Api;

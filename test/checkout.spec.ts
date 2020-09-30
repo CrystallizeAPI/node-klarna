@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { Klarna } from '../src';
+import { Klarna, IKlarnaInstance } from '../src';
 
 dotenv.config();
 
@@ -7,6 +7,16 @@ const username = process.env.KLARNA_USERNAME;
 const password = process.env.KLARNA_PASSWORD;
 
 describe('checkout v3', () => {
+
+  let klarna: IKlarnaInstance;
+  let orderId: string;
+
+  beforeAll((done) => {
+    if (username && password) {
+      klarna = new Klarna({ username, password });
+      done();
+    }
+  });
   
   it('should create an order', async () => {    
     const dummyOrderObj = {
@@ -33,24 +43,17 @@ describe('checkout v3', () => {
       }
     };
 
-    if (username && password) {
-      const klarna = new Klarna({ username, password });
-      const dummyOrder = await klarna.checkout.createOrder(dummyOrderObj);
-      expect(dummyOrder).toHaveProperty('statusCode', 201);
-    } else {
-      expect(username || password).toBeFalsy();
+    const dummyOrder = await klarna.checkoutV3.createOrder(dummyOrderObj);
+    if (dummyOrder?.response?.order_id) {
+      orderId = dummyOrder.response.order_id;
     }
+    expect(dummyOrder).toHaveProperty('statusCode', 201);
   });
 
 
-  it('should retrieve an order', async () => {    
-    if (username && password) {
-      const klarna = new Klarna({ username, password });
-      const order = await klarna.checkout.retrieveOrder('f5f35214-eba5-6093-b212-501c3d6038a8');
+  it('should retrieve an order', async () => {
+      const order = await klarna.checkoutV3.retrieveOrder(orderId);
       expect(order).toHaveProperty('statusCode', 200);
-    } else {
-      expect(username || password).toBeFalsy();
-    }
   });
 
   it('should update an order', async () => {
@@ -79,13 +82,8 @@ describe('checkout v3', () => {
       }
     };
 
-    if (username && password) {
-      const klarna = new Klarna({ username, password });
-      const order = await klarna.checkout.updateOrder('f5f35214-eba5-6093-b212-501c3d6038a8', dummyUpdateOrderObj);
-      expect(order).toHaveProperty('statusCode', 200);
-    } else {
-      expect(username || password).toBeFalsy();
-    }
+    const order = await klarna.checkoutV3.updateOrder(orderId, dummyUpdateOrderObj);
+    expect(order).toHaveProperty('statusCode', 200);
   });
 
 });
