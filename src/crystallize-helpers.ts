@@ -128,7 +128,7 @@ export class CrystallizeKlarnaHelpers {
 
   isSubscription(lineItems: Array<ICrystallizeLineItem>): boolean {
     let hasSubscription: boolean = false;
-    lineItems.forEach((i:ICrystallizeLineItem) => {
+    lineItems.forEach((i: ICrystallizeLineItem) => {
       if (i.subscriptionPlans.length > 0) {
         hasSubscription = true;
       }
@@ -170,7 +170,7 @@ export class CrystallizeKlarnaHelpers {
       order_lines,
       order_tax_amount,
       order_amount,
-      recurring: this.isSubscription(lineItems)
+      recurring: this.isSubscription(lineItems),
     };
 
     return orderBody;
