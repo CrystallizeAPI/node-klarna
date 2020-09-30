@@ -24,7 +24,7 @@ export interface IOrderBody {
   order_tax_amount: number;
   order_lines: Array<IOrderLine>;
   merchant_urls: IMerchantObj;
-  recurring: boolean;
+  recurring?: boolean;
 }
 
 export interface IShippingOption {
