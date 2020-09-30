@@ -34,7 +34,7 @@ interface ICrystallizeLineItem {
   stock: number;
   subscriptionPlans: Array<ISubscriptionPlan>;
   vatAmount: number;
-  tax_group: {
+  taxGroup: {
     name: string;
     percent: number;
   };
@@ -108,7 +108,7 @@ export class CrystallizeKlarnaHelpers {
         name: item.name,
         reference: item.sku,
         quantity: item.quantity,
-        tax_rate: item.tax_group.percent * 100 || 0,
+        tax_rate: item.taxGroup.percent * 100 || 0,
         unit_price: item.price * 100,
         merchant_data: JSON.stringify({
           productId: item.id,
