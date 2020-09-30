@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.0...v4.0.1) (2020-09-30)
+
+
+### Bug Fixes
+
+* crystallizeHelperFunction kebab_case to camelCase for lineItem ([1640801](https://github.com/CrystallizeAPI/node-klarna/commit/16408010b85d733ed95af07f62ee2072f40eba68))
+
 # [4.0.0](https://github.com/CrystallizeAPI/node-klarna/compare/v3.3.2...v4.0.0) (2020-09-30)
 
 
