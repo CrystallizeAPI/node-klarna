@@ -1,17 +1,18 @@
 import { IResponse } from '../../http-request';
 
 export interface IOrderLine {
-  type: string;
-  reference: string;
+  type?: string;
+  reference?: string;
   name: string;
   quantity: number;
+  quantity_unit?: string;
   unit_price: number;
   tax_rate: number;
   total_amount: number;
-  total_discount_amount: number;
+  total_discount_amount?: number;
   total_tax_amount: number;
-  image_url: string;
-  merchant_data: string;
+  image_url?: string;
+  merchant_data?: string;
 }
 
 export interface IMerchantObj {
