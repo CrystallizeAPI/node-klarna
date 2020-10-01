@@ -1,3 +1,10 @@
+## [4.6.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.0...v4.6.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* use correct types for customerTokenV1 recurring order ([8fba733](https://github.com/CrystallizeAPI/node-klarna/commit/8fba733f9826475f704af9a54f652e08aa4de8c4))
+
 # [4.6.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.5.0...v4.6.0) (2020-10-01)
 
 
