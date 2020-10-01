@@ -37,7 +37,6 @@ export interface IShippingOption {
   preselected: boolean;
 }
 
-
 export interface IAddress {
   given_name: string;
   family_name: string;
@@ -80,5 +79,5 @@ export interface IOrder {
 export interface IOrderResponse extends IResponse {
   statusCode: number;
   error?: Error;
-  response?: IOrder
+  response?: IOrder;
 }
