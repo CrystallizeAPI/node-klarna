@@ -1,3 +1,15 @@
+# [4.4.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.3.0...v4.4.0) (2020-10-01)
+
+
+### Bug Fixes
+
+* lint error ([6387417](https://github.com/CrystallizeAPI/node-klarna/commit/6387417b7c55a66a071c6b004edac1f8f525c58c))
+
+
+### Features
+
+* destructure interface, add shared address types, added additional types ([c1cc0b4](https://github.com/CrystallizeAPI/node-klarna/commit/c1cc0b45082bbae0f9b39a60750a689937e61251))
+
 # [4.3.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.2.0...v4.3.0) (2020-10-01)
 
 
