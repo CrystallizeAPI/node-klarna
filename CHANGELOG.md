@@ -1,3 +1,10 @@
+# [4.6.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.5.0...v4.6.0) (2020-10-01)
+
+
+### Features
+
+* **crystallize-helpers:** indicate if product is a subscription in klarna merchant_data ([9ca7778](https://github.com/CrystallizeAPI/node-klarna/commit/9ca77780bdf201c3fbdfa26e457f650dafcdd29e))
+
 # [4.5.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.4.0...v4.5.0) (2020-10-01)
 
 
