@@ -68,5 +68,7 @@ export interface IOrderResponse extends IResponse {
     };
     html_snippet: string;
     recurring: boolean;
+    recurring_token: string;
+    recurring_description: string;
   };
 }
