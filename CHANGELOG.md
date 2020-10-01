@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.1.0...v4.1.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* **lint:** trailing semicolon ([1175b4a](https://github.com/CrystallizeAPI/node-klarna/commit/1175b4ad3bdc9aeec0038f4be1ccd0e7d27e3830))
+
 # [4.1.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.0.1...v4.1.0) (2020-09-30)
 
 
