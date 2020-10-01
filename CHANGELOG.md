@@ -1,3 +1,15 @@
+# [4.5.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.4.0...v4.5.0) (2020-10-01)
+
+
+### Bug Fixes
+
+* added types must be optional ([7717b9c](https://github.com/CrystallizeAPI/node-klarna/commit/7717b9c428eedd8167612d1c8adc4758b4418d7b))
+
+
+### Features
+
+* add additional type fields for klarna order_line ([5edfa8c](https://github.com/CrystallizeAPI/node-klarna/commit/5edfa8c3c989027de28f1ce4b3f8f27642a91acd))
+
 # [4.4.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.3.0...v4.4.0) (2020-10-01)
 
 
