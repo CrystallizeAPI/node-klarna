@@ -112,6 +112,7 @@ export class CrystallizeKlarnaHelpers {
         unit_price: item.price * 100,
         merchant_data: JSON.stringify({
           productId: item.id,
+          subscription: item?.subscriptionPlans?.length > 0 ? true : false,
         }),
         image_url: item.image.url,
         total_amount: amount,
