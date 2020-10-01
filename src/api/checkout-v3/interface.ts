@@ -50,6 +50,22 @@ export interface IOrderResponse extends IResponse {
     order_tax_amount: number;
     order_lines: Array<IOrderLine>;
     merchant_urls: IMerchantObj;
+    billing_address: {
+      given_name: string;
+      family_name: string;
+      email: string;
+      title: string;
+      street_address: string;
+      street_address2: string;
+      street_number: string;
+      postal_code: string;
+      city: string;
+      region: string;
+      phone: string;
+      country: string;
+      reference: string;
+      attention: string;
+    };
     html_snippet: string;
     recurring: boolean;
   };

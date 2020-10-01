@@ -5,7 +5,7 @@ import {
   IOrderLine,
 } from './api/checkout-v3';
 
-interface IDefaults {
+export interface IDefaults {
   host_uri: string;
   purchase_country?: string;
   purchase_currency?: string;
@@ -23,7 +23,7 @@ interface ISubscriptionPlan {
   recurringPrice: number;
 }
 
-interface ICrystallizeLineItem {
+export interface ICrystallizeLineItem {
   id: string;
   name: string;
   sku: string;
