@@ -1,3 +1,10 @@
+## [4.6.2](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.1...v4.6.2) (2020-10-01)
+
+
+### Bug Fixes
+
+* **crystallize-helpers:** add shipping option field & types when generating orderbody ([ef4c087](https://github.com/CrystallizeAPI/node-klarna/commit/ef4c08738c7efae7f91eeb3e123311f4672e2dc3))
+
 ## [4.6.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.0...v4.6.1) (2020-10-01)
 
 
