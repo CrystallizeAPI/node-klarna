@@ -51,6 +51,6 @@ export interface IOrderResponse extends IResponse {
     order_lines: Array<IOrderLine>;
     merchant_urls: IMerchantObj;
     html_snippet: string;
-    recurring: boolean
+    recurring: boolean;
   };
 }
