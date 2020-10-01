@@ -168,6 +168,8 @@ export class CrystallizeKlarnaHelpers {
           this.defaults.merchant_urls?.push ||
           packageDefaults.merchant_urls?.push!,
       },
+      shipping_options:
+        this.defaults?.shipping_options! || packageDefaults?.shipping_options!,
       order_lines,
       order_tax_amount,
       order_amount,

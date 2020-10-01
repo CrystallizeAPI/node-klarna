@@ -31,16 +31,39 @@ export interface IOrderBody {
   order_lines: Array<IOrderLine>;
   merchant_urls: IMerchantObj;
   recurring?: boolean;
+  shipping_options?: IShippingOption[];
 }
 
 export interface IShippingOption {
   id: number;
   name: string;
-  description: string;
+  description?: string;
+  promo?: string;
   price: number;
+  preselected?: boolean;
   tax_amount: number;
   tax_rate: number;
-  preselected: boolean;
+  shipping_method?: string;
+  delivery_details?: {
+    carrier?: string;
+    class?: string;
+    product?: {
+      name: string;
+      identifier: string;
+    };
+    timeslot?: {
+      id: string;
+      start: string;
+      end: string;
+    };
+    pickup_location?: {
+      id: string;
+      name: string;
+      address: IAddress;
+    };
+    tms_reference?: string;
+  };
+  merchant_data?: string;
 }
 
 export interface IAddress {
