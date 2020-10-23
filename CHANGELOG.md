@@ -1,3 +1,10 @@
+## [4.6.3](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.2...v4.6.3) (2020-10-23)
+
+
+### Bug Fixes
+
+* null check ([df07181](https://github.com/CrystallizeAPI/node-klarna/commit/df071812c0a10cb94438f8a6f5017474006b5ec2))
+
 ## [4.6.2](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.1...v4.6.2) (2020-10-01)
 
 
