@@ -130,7 +130,7 @@ export class CrystallizeKlarnaHelpers {
   isSubscription(lineItems: Array<ICrystallizeLineItem>): boolean {
     let hasSubscription: boolean = false;
     lineItems.forEach((i: ICrystallizeLineItem) => {
-      if (i.subscriptionPlans.length > 0) {
+      if (i?.subscriptionPlans?.length > 0) {
         hasSubscription = true;
       }
     });
