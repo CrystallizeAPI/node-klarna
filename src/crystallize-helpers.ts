@@ -23,6 +23,11 @@ interface ISubscriptionPlan {
   recurringPrice: number;
 }
 
+export interface IAttribute {
+  attributes: string;
+  value: string;
+}
+
 export interface ICrystallizeLineItem {
   id: string;
   name: string;
@@ -41,6 +46,7 @@ export interface ICrystallizeLineItem {
   image: {
     url: string;
   };
+  attributes: IAttribute[];
 }
 
 interface IParsedOrderLines {
