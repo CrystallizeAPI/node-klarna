@@ -31,6 +31,8 @@ export interface IAttribute {
 export interface ICrystallizeLineItem {
   id: string;
   name: string;
+  basketId: string;
+  path: string;
   sku: string;
   price: number;
   isDefault: boolean;
@@ -46,6 +48,7 @@ export interface ICrystallizeLineItem {
   image: {
     url: string;
   };
+  variantId: string;
   attributes: IAttribute[];
 }
 
