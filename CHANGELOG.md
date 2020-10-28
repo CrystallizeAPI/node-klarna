@@ -1,3 +1,10 @@
+## [4.6.4](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.3...v4.6.4) (2020-10-28)
+
+
+### Bug Fixes
+
+* add more types for crystallizeLineItem ([1168c8d](https://github.com/CrystallizeAPI/node-klarna/commit/1168c8d0d08fbe1d0c0b95887be397e25349e76e))
+
 ## [4.6.3](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.2...v4.6.3) (2020-10-23)
 
 
