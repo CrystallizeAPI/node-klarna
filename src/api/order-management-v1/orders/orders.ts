@@ -4,6 +4,7 @@ export interface IOrders {
   acknowledge(orderId: string): Promise<IResponse>;
   cancel(orderId: string): Promise<IResponse>;
   releaseRemainingAuthorization(orderId: string): Promise<IResponse>;
+  getOrder(orderId: string): Promise<IResponse>;
 }
 
 interface IUpdateMerchantReferenceBody {
@@ -56,5 +57,9 @@ export class Orders extends HttpRequest {
       `/ordermanagement/v1/orders/${orderId}/merchant-references`,
       body
     );
+  }
+
+  getOrder(orderId: string): Promise<IResponse> {
+    return this.invoke(`GET`, `/ordermanagement/v1/orders/${orderId}`);
   }
 }
