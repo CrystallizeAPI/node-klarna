@@ -1,3 +1,10 @@
+# [4.7.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.4...v4.7.0) (2020-12-04)
+
+
+### Features
+
+* add ordermanagementv1 get order function ([96b4e1e](https://github.com/CrystallizeAPI/node-klarna/commit/96b4e1efebcf52189352485f90d3b27eff495dd8))
+
 ## [4.6.4](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.3...v4.6.4) (2020-10-28)
 
 
