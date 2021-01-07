@@ -32,7 +32,6 @@ export interface IOrderBody {
   merchant_urls: IMerchantObj;
   recurring?: boolean;
   shipping_options?: IShippingOption[];
-  shipping_address?: IAddress;
 }
 
 export interface IShippingOption {
