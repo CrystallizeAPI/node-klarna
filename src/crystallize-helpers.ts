@@ -39,6 +39,7 @@ export interface ICrystallizeLineItem {
   priceWithoutVat: number;
   quantity: number;
   stock: number;
+  isSubscriptionOnly: boolean;
   subscriptionPlans: Array<ISubscriptionPlan>;
   vatAmount: number;
   taxGroup: {
@@ -105,29 +106,31 @@ export class CrystallizeKlarnaHelpers {
     let order_tax_amount = 0;
     let order_amount = 0;
 
-    const order_lines: Array<IOrderLine> = lineItems.map(item => {
-      order_tax_amount += item.vatAmount * 100;
+    const order_lines: Array<IOrderLine> = lineItems.map(
+      (item: ICrystallizeLineItem) => {
+        order_tax_amount += item.vatAmount * 100;
 
-      // Klarna represents numbers as number * 100
-      // Ex: 11.59 becomes 1159. 9 becomes 900
-      const amount = item.price * 100 * item.quantity;
-      order_amount += amount;
+        // Klarna represents numbers as number * 100
+        // Ex: 11.59 becomes 1159. 9 becomes 900
+        const amount = item.price * 100 * item.quantity;
+        order_amount += amount;
 
-      return {
-        name: item.name,
-        reference: item.sku,
-        quantity: item.quantity,
-        tax_rate: item.taxGroup.percent * 100 || 0,
-        unit_price: item.price * 100,
-        merchant_data: JSON.stringify({
-          productId: item.id,
-          subscription: item?.subscriptionPlans?.length > 0 ? true : false,
-        }),
-        image_url: item.image.url,
-        total_amount: amount,
-        total_tax_amount: item.vatAmount * 100,
-      };
-    });
+        return {
+          name: item.name,
+          reference: item.sku,
+          quantity: item.quantity,
+          tax_rate: item.taxGroup.percent * 100 || 0,
+          unit_price: item.price * 100,
+          merchant_data: JSON.stringify({
+            productId: item.id,
+            subscription: this.isSubscription([item]),
+          }),
+          image_url: item.image.url,
+          total_amount: amount,
+          total_tax_amount: item.vatAmount * 100,
+        };
+      }
+    );
 
     return {
       order_lines,
@@ -139,7 +142,7 @@ export class CrystallizeKlarnaHelpers {
   isSubscription(lineItems: Array<ICrystallizeLineItem>): boolean {
     let hasSubscription: boolean = false;
     lineItems.forEach((i: ICrystallizeLineItem) => {
-      if (i?.subscriptionPlans?.length > 0) {
+      if (i?.subscriptionPlans?.length > 0 || i.isSubscriptionOnly === true) {
         hasSubscription = true;
       }
     });
