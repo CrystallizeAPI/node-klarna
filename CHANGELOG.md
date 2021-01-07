@@ -1,3 +1,11 @@
+## [4.7.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.7.0...v4.7.1) (2021-01-07)
+
+
+### Bug Fixes
+
+* convert address interface types to optional (as per klarna docs) ([e987a0c](https://github.com/CrystallizeAPI/node-klarna/commit/e987a0c6c06a034663e1e6784830a1dd06a1b57d))
+* revert unecessary property ([dcb88d4](https://github.com/CrystallizeAPI/node-klarna/commit/dcb88d492a2849cbf79032f1886116114b299ab4))
+
 # [4.7.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.6.4...v4.7.0) (2020-12-04)
 
 
