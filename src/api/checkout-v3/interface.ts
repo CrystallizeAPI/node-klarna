@@ -32,6 +32,7 @@ export interface IOrderBody {
   merchant_urls: IMerchantObj;
   recurring?: boolean;
   shipping_options?: IShippingOption[];
+  shipping_address?: IAddress;
 }
 
 export interface IShippingOption {
@@ -67,21 +68,21 @@ export interface IShippingOption {
 }
 
 export interface IAddress {
-  given_name: string;
-  family_name: string;
-  email: string;
-  title: string;
-  street_address: string;
-  street_address2: string;
-  street_number: string;
-  postal_code: string;
-  city: string;
-  region: string;
-  phone: string;
-  country: string;
-  reference: string;
-  attention: string;
-  care_of: string;
+  given_name?: string;
+  family_name?: string;
+  email?: string;
+  title?: string;
+  street_address?: string;
+  street_address2?: string;
+  street_number?: string;
+  postal_code?: string;
+  city?: string;
+  region?: string;
+  phone?: string;
+  country?: string;
+  reference?: string;
+  attention?: string;
+  care_of?: string;
 }
 
 export interface IOrder {
