@@ -1,3 +1,10 @@
+# [4.8.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.7.1...v4.8.0) (2021-01-07)
+
+
+### Features
+
+* also consider *isSubscriptionOnly* prop when converting crystallizeLineItem to klarnaLineItem ([cc64243](https://github.com/CrystallizeAPI/node-klarna/commit/cc642432df4b4cc49b361a954072ee603424f5f6))
+
 ## [4.7.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.7.0...v4.7.1) (2021-01-07)
 
 
