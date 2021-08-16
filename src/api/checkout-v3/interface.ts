@@ -107,6 +107,7 @@ export interface IOrder {
   recurring_description: string;
   merchant_reference1?: string;
   merchant_reference2?: string;
+  selected_shipping_option?: IShippingOption;
 }
 
 export interface IOrderResponse extends IResponse {
