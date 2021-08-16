@@ -32,6 +32,8 @@ export interface IOrderBody {
   merchant_urls: IMerchantObj;
   recurring?: boolean;
   shipping_options?: IShippingOption[];
+  merchant_reference1?: string;
+  merchant_reference2?: string;
 }
 
 export interface IShippingOption {
@@ -103,6 +105,8 @@ export interface IOrder {
   recurring: boolean;
   recurring_token: string;
   recurring_description: string;
+  merchant_reference1?: string;
+  merchant_reference2?: string;
 }
 
 export interface IOrderResponse extends IResponse {
