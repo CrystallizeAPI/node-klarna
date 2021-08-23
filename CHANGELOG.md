@@ -1,3 +1,11 @@
+## [4.8.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.8.0...v4.8.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* add merchant references to order types ([a38220a](https://github.com/CrystallizeAPI/node-klarna/commit/a38220a10b3272a36f253782caae1d5d25287e36))
+* add selected shipping to get order type ([8abc0f0](https://github.com/CrystallizeAPI/node-klarna/commit/8abc0f03a53243ded37f466d52f16c5ce7296d6f))
+
 # [4.8.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.7.1...v4.8.0) (2021-01-07)
 
 
