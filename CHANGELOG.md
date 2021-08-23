@@ -1,3 +1,10 @@
+# [4.9.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.8.1...v4.9.0) (2021-08-23)
+
+
+### Features
+
+* updated packages ([27c87ae](https://github.com/CrystallizeAPI/node-klarna/commit/27c87ae6ea8b127c18afc7797066963c3be8421b))
+
 ## [4.8.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.8.0...v4.8.1) (2021-08-23)
 
 
