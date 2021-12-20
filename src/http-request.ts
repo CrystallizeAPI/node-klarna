@@ -1,5 +1,6 @@
 import * as https from 'https';
 import * as http from 'http';
+import { parseJSON } from './utils';
 
 export interface IOptions {
   authorization: string;
@@ -8,8 +9,8 @@ export interface IOptions {
 
 export interface IResponse {
   statusCode: number;
-  error?: Error;
-  response?: any;
+  error?: string | Error | any;
+  response?: string | any;
 }
 
 export class HttpRequest {
@@ -26,7 +27,7 @@ export class HttpRequest {
     path: string,
     requestBody = {}
   ): Promise<IResponse> {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       const options: http.RequestOptions = {
         method: httpMethod,
         hostname: this.hostname,
@@ -56,16 +57,24 @@ export class HttpRequest {
             );
           }
 
-          if (res.statusCode) {
-            if (res.statusCode < 200 || res.statusCode >= 300) {
-              reject({ statusCode: res.statusCode, error: apiResponse });
-            } else {
-              resolve({
-                statusCode: res.statusCode,
-                response: apiResponse !== '' && JSON.parse(apiResponse),
-              });
-            }
+          if (!res.statusCode) {
+            return;
           }
+
+          const parsedJSON = parseJSON(apiResponse);
+          const response = parsedJSON ? parsedJSON : apiResponse;
+
+          if (res.statusCode < 200 || res.statusCode >= 300) {
+            return resolve({
+              statusCode: res.statusCode,
+              error: response,
+            });
+          }
+
+          resolve({
+            statusCode: res.statusCode,
+            response: response,
+          });
         });
       });
 
@@ -75,7 +84,7 @@ export class HttpRequest {
 
       req.on('error', function(error): void {
         console.error('Klarna request errored: ' + error.message);
-        reject({ statusCode: 500, error });
+        resolve({ statusCode: 500, error });
       });
 
       req.end();
