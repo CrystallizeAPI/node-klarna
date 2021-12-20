@@ -3,7 +3,7 @@ import { Captures, ICaptures } from './captures';
 import { Refunds, IRefunds } from './refunds';
 import { IOptions } from '../../http-request';
 
-export interface IOrdermanagementV1 {
+export interface IOrderManagementV1 {
   orders: IOrders;
   captures: ICaptures;
   refunds: IRefunds;
@@ -12,7 +12,7 @@ export interface IOrdermanagementV1 {
 /**
  * Docs: https://developers.klarna.com/api/#order-management-api
  */
-export class OrdermanagementV1 {
+export class OrderManagementV1 {
   orders: IOrders;
   captures: ICaptures;
   refunds: IRefunds;
