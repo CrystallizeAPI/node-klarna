@@ -112,6 +112,6 @@ export interface IOrder {
 
 export interface IOrderResponse extends IResponse {
   statusCode: number;
-  error?: Error;
+  error?: Error | any;
   response?: IOrder;
 }
