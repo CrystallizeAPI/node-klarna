@@ -1,8 +1,9 @@
 name: CI
-on: [push]
+on: [pull_request]
 jobs:
-  ci:
+  lint_and_test:
 
+    name: Lint and Test Code
     runs-on: ubuntu-latest
 
     steps:
@@ -51,9 +52,3 @@ jobs:
         env:
           CI: true
 
-      - name: Release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          CI: true
