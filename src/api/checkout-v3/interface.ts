@@ -15,7 +15,7 @@ export interface IOrderLine {
   merchant_data?: string;
 }
 
-export interface IMerchantObj {
+export interface IMerchantUrls {
   terms: string;
   checkout: string;
   confirmation: string;
@@ -29,7 +29,7 @@ export interface IOrderBody {
   order_amount: number;
   order_tax_amount: number;
   order_lines: Array<IOrderLine>;
-  merchant_urls: IMerchantObj;
+  merchant_urls: IMerchantUrls;
   recurring?: boolean;
   shipping_options?: IShippingOption[];
   merchant_reference1?: string;
@@ -37,7 +37,7 @@ export interface IOrderBody {
 }
 
 export interface IShippingOption {
-  id: number;
+  id: string;
   name: string;
   description?: string;
   promo?: string;
@@ -98,7 +98,7 @@ export interface IOrder {
   order_amount: number;
   order_tax_amount: number;
   order_lines: Array<IOrderLine>;
-  merchant_urls: IMerchantObj;
+  merchant_urls: IMerchantUrls;
   billing_address: IAddress;
   shipping_address: IAddress;
   html_snippet: string;

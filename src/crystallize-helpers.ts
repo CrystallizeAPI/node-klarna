@@ -1,5 +1,5 @@
 import {
-  IMerchantObj,
+  IMerchantUrls,
   IShippingOption,
   IOrderBody,
   IOrderLine,
@@ -10,7 +10,7 @@ export interface IDefaults {
   purchase_country?: string;
   purchase_currency?: string;
   locale?: string;
-  merchant_urls?: IMerchantObj;
+  merchant_urls?: IMerchantUrls;
   shipping_options?: Array<IShippingOption>;
 }
 
@@ -73,7 +73,7 @@ function getPackageDefaults(host_uri: string): IDefaults {
     },
     shipping_options: [
       {
-        id: 1,
+        id: '1',
         name: 'Hjemlevering',
         description: 'Rett i postkassen',
         price: 4900,
