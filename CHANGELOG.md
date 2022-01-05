@@ -1,3 +1,19 @@
+# [5.0.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.9.1...v5.0.0) (2022-01-05)
+
+
+### Bug Fixes
+
+* shipping option ID type and merchant urls interface nam ([26bcec6](https://github.com/CrystallizeAPI/node-klarna/commit/26bcec6ccde8eba48da847b80f62bc8eb2e4441d))
+* typo in order management API ([dcb5276](https://github.com/CrystallizeAPI/node-klarna/commit/dcb52760d9cb9be8087352712099b563e5d9947c))
+
+
+### BREAKING CHANGES
+
+* shipping option id has correct number type now
+(Empty commit, released in 13f7f641f9e1ae71c1d80f6b40604b9ab3d5fe7c)
+* ordermanagementV1 renamed to orderManagementV1
+(Empty commit, released in e0e775c0aa0a30e215d29e70f3fa2e2e24059016)
+
 ## [4.9.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.9.0...v4.9.1) (2022-01-05)
 
 
