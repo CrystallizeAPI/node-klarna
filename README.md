@@ -47,3 +47,5 @@ const order = await klarna.checkoutV3.retrieveOrder(orderId);
 
 ```
 
+
+
