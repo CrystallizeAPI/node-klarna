@@ -37,7 +37,7 @@
     "trailingComma": "es5"
   },
   "name": "@crystallize/node-klarna",
-  "author": "Meet Dave @ Snowball Digital",
+  "author": "Crystallize",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
