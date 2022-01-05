@@ -1,3 +1,11 @@
+## [4.9.1](https://github.com/CrystallizeAPI/node-klarna/compare/v4.9.0...v4.9.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* node version in CI/CD workflow ([3c03c7b](https://github.com/CrystallizeAPI/node-klarna/commit/3c03c7b3861bf5c51a3661d585fe94b7bbf49a69))
+* rejected promise on Klarna error ([4ba5b4c](https://github.com/CrystallizeAPI/node-klarna/commit/4ba5b4cc655b9fd656e3302e3fd3d95534d9cd0b))
+
 # [4.9.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.8.1...v4.9.0) (2021-08-23)
 
 
