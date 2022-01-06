@@ -4,46 +4,82 @@ API Wrapper for Klarna with Crystallize helper functions
 
 ## Install
 
+Add wrapper as dependency:
+
 ```shell
-$ npm install @crystallize/node-klarna
-
-# Or, if you prefer yarn
-$ yarn add @crystallize/node-klarna
-```
-
-## Usage 
-
-Initialize the Klarna library
-
-```javascript 
-
-const { Klarna, CrystallizeKlarnaHelpers } = require('@crystallize/node-klarna');
-
-const klarna = new Klarna({ username, password, apiEndpoint });
-const crystallizeKlarnaHelpers = new CrystallizeKlarnaHelpers({
-  host_uri: 'http://localhost:3000',
-  purchase_country: 'NO',
-  // And other defaults
-})
-
-const orderBody = crystallizeKlarnaHelpers.getOrderBody(crystallizeLineItems); // Returns Klarna compatible order body
-
-const order = klarna.checkoutV3.createOrder(orderBody);
+yarn add @crystallize/node-klarna
 
 ```
 
-The library mimicks the Klarna API path, making module usability more predictable. 
+Or, if you prefer NPM:
 
+```shell
+npm install @crystallize/node-klarna
+```
 
-Example: 
+## Usage
 
-api path: `/checkout/v3/orders/:order_id` [https://developers.klarna.com/api/#checkout-api-retrieve-an-order](https://developers.klarna.com/api/#checkout-api-retrieve-an-order)
+### Klarna Library
 
-is usable like
+Initialize the Klarna library:
 
 ```javascript
+const {Klarna} = require('@crystallize/node-klarna')
 
-const order = await klarna.checkoutV3.retrieveOrder(orderId);
-
+const klarna = new Klarna({
+    username: 'username provided by Klarna',
+    password: 'password provided by Klarna',
+    apiEndpoint: 'api.playground.klarna.com', // Optional, this value by default
+    logs: { // Optional, logs disabled by default
+        enabled: false,
+        useNodeEnv: true, // Use NODE_ENV variable, logs enabled in non 'production' environment
+    }
+})
 ```
+
+Create Klarna order using the library:
+
+```javascript
+const response = await klarna.checkoutV3.createOrder({
+    // body structure follows Klarna API spec
+})
+```
+
+The library has also built-in TypeScript support:
+
+```typescript
+import {OrderBody, OrderResponse} from '@crystallize/node-klarna'
+
+const body: OrderBody = {
+    // ...
+}
+
+const response: OrderResponse = await klarna.checkoutV3.createOrder(body)
+```
+
+### Crystallize Klarna helpers
+
+Initialize Crystallize helpers:
+
+```javascript
+const {CrystallizeKlarnaHelpers} = require('@crystallize/node-klarna');
+
+const crystallizeKlarnaHelpers = new CrystallizeKlarnaHelpers({
+    host_uri: 'http://localhost:3000',
+    purchase_country: 'NO',
+    logs: { // Optional, logs disabled by default
+        enabled: false,
+        useNodeEnv: true, // Use NODE_ENV variable, logs enabled in non 'production' environment
+    }
+    // And other defaults
+})
+```
+
+Generate Klarna order body from Crystallize order items:
+
+```javascript
+const klarnaOrderBody = crystallizeKlarnaHelpers.getOrderBody(crystallizeLineItems);
+```
+
+
 
