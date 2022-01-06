@@ -1,9 +1,5 @@
 import { HttpRequest, Response } from '../../../http-request';
-
-interface UpdateMerchantReferenceBody {
-  merchant_reference1: string;
-  merchant_reference2: string;
-}
+import { UpdateMerchantReferenceBody } from './interface';
 
 export class Orders extends HttpRequest {
   /**

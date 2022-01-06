@@ -1,12 +1,5 @@
 import { HttpRequest, Response } from '../../../http-request';
-import { OrderLine } from '../../checkout-v3';
-
-interface RefundBody {
-  refunded_amount: number;
-  description?: string;
-  reference?: string;
-  order_lines: Array<OrderLine>;
-}
+import { RefundBody } from './interface';
 
 export class Refunds extends HttpRequest {
   /**

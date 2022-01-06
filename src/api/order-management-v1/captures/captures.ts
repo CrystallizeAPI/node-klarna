@@ -1,13 +1,5 @@
 import { HttpRequest, Response } from '../../../http-request';
-import { OrderLine } from '../../checkout-v3';
-
-interface CaptureBody {
-  captured_amount: number;
-  description?: string;
-  reference?: string;
-  order_lines?: Array<OrderLine>;
-  shipping_delay?: number;
-}
+import { CaptureBody } from './interface';
 
 export class Captures extends HttpRequest {
   /**
