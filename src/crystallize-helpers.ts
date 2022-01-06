@@ -4,6 +4,7 @@ import {
   OrderBody,
   OrderLine,
 } from './api/checkout-v3';
+import { OptionalLogConfig, optionalLoggerFactory } from './utils';
 
 export interface Defaults {
   host_uri: string;
@@ -12,6 +13,7 @@ export interface Defaults {
   locale?: string;
   merchant_urls?: MerchantUrls;
   shipping_options?: Array<ShippingOption>;
+  logs?: OptionalLogConfig;
 }
 
 interface SubscriptionPlan {
@@ -89,8 +91,10 @@ export class CrystallizeKlarnaHelpers {
   defaults: Defaults;
 
   constructor(defaults: Defaults) {
+    const logger = optionalLoggerFactory(defaults.logs);
+
     if (!defaults?.host_uri) {
-      console.warn(
+      logger.warn(
         '\x1b[33m',
         '⚠️   host_uri property is mandatory while initialising CrystallizeKlarnaHelpers',
         '\x1b[0m'

@@ -1,10 +1,12 @@
 import { HttpRequest } from '../src/http-request';
 import nock from 'nock';
+import { optionalLoggerFactory } from '../src/utils';
 
 describe('HttpRequest', () => {
   const httpRequest = new HttpRequest({
     authorization: 'none',
     apiEndpoint: 'example.com',
+    logger: optionalLoggerFactory({ enabled: false }),
   });
 
   describe('invoke', () => {

@@ -2,13 +2,11 @@ import { Options } from './http-request';
 import { CheckoutV3 } from './api/checkout-v3';
 import { CustomerTokenV1 } from './api/customer-token-v1';
 import { OrderManagementV1 } from './api/order-management-v1';
-export * from './crystallize-helpers';
+import { optionalLoggerFactory } from './utils';
+import { Config } from './interface';
 
-interface Config {
-  username: string;
-  password: string;
-  apiEndpoint?: string;
-}
+export * from './interface';
+export * from './crystallize-helpers';
 
 export class Klarna {
   checkoutV3: CheckoutV3;
@@ -19,8 +17,10 @@ export class Klarna {
     let { apiEndpoint } = config;
     const { username, password } = config;
 
+    const logger = optionalLoggerFactory(config.logs);
+
     if (!apiEndpoint || apiEndpoint === '') {
-      console.warn(
+      logger.warn(
         '\x1b[33m',
         '⚠️   apiEndpoint field not provided while initializing library. Default API endpoint set to: https://api.playground.klarna.com [Test EU]',
         '\x1b[0m'
@@ -41,6 +41,7 @@ export class Klarna {
       authorization: `Basic ${Buffer.from(`${username}:${password}`).toString(
         'base64'
       )}`,
+      logger,
     };
 
     this.checkoutV3 = new CheckoutV3(options);

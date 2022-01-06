@@ -1,10 +1,11 @@
 import * as https from 'https';
 import * as http from 'http';
-import { parseJSON } from './utils';
+import { Logger, parseJSON } from './utils';
 
 export interface Options {
   authorization: string;
   apiEndpoint: string;
+  logger: Logger;
 }
 
 export interface Response {
@@ -14,12 +15,14 @@ export interface Response {
 }
 
 export class HttpRequest {
-  authorization: string;
-  hostname: string;
+  protected readonly authorization: string;
+  protected readonly hostname: string;
+  protected readonly logger: Logger;
 
   constructor(options: Options) {
     this.authorization = options.authorization;
     this.hostname = options.apiEndpoint;
+    this.logger = options.logger;
   }
 
   invoke(
@@ -27,6 +30,8 @@ export class HttpRequest {
     path: string,
     requestBody = {}
   ): Promise<Response> {
+    const logger = this.logger;
+
     return new Promise(resolve => {
       const options: http.RequestOptions = {
         method: httpMethod,
@@ -50,7 +55,7 @@ export class HttpRequest {
 
           // Check if the response is really from Klarna?
           if (!res?.headers?.['klarna-correlation-id']) {
-            console.warn(
+            logger.warn(
               '\x1b[41m',
               '⚠️ important: api response headers do not contain klarna correlation id',
               '\x1b[0m'
@@ -83,7 +88,7 @@ export class HttpRequest {
       }
 
       req.on('error', function(error): void {
-        console.error('Klarna request errored: ' + error.message);
+        logger.error('Klarna request errored: ' + error.message);
         resolve({ statusCode: 500, error });
       });
 
