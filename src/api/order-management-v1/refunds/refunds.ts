@@ -8,10 +8,6 @@ interface IRefundBody {
   order_lines: Array<IOrderLine>;
 }
 
-export interface IRefunds {
-  create(orderId: string, body: IRefundBody): Promise<IResponse>;
-}
-
 export class Refunds extends HttpRequest {
   /**
    * https://developers.klarna.com/api/#order-management-api-create-a-refund

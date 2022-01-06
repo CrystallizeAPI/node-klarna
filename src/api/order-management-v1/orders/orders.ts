@@ -1,12 +1,5 @@
 import { HttpRequest, IResponse } from '../../../http-request';
 
-export interface IOrders {
-  acknowledge(orderId: string): Promise<IResponse>;
-  cancel(orderId: string): Promise<IResponse>;
-  releaseRemainingAuthorization(orderId: string): Promise<IResponse>;
-  getOrder(orderId: string): Promise<IResponse>;
-}
-
 interface IUpdateMerchantReferenceBody {
   merchant_reference1: string;
   merchant_reference2: string;

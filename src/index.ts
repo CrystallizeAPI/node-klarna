@@ -1,10 +1,7 @@
 import { IOptions } from './http-request';
-import { CheckoutV3, ICheckoutV3 } from './api/checkout-v3';
-import { CustomerTokenV1, ICustomerTokenV1 } from './api/customer-token-v1';
-import {
-  IOrderManagementV1,
-  OrderManagementV1,
-} from './api/order-management-v1';
+import { CheckoutV3 } from './api/checkout-v3';
+import { CustomerTokenV1 } from './api/customer-token-v1';
+import { OrderManagementV1 } from './api/order-management-v1';
 export * from './crystallize-helpers';
 
 interface IConfig {
@@ -13,16 +10,10 @@ interface IConfig {
   apiEndpoint?: string;
 }
 
-export interface IKlarnaInstance {
-  checkoutV3: ICheckoutV3;
-  customerTokenV1: ICustomerTokenV1;
-  orderManagementV1: IOrderManagementV1;
-}
-
-export class Klarna implements IKlarnaInstance {
-  checkoutV3: ICheckoutV3;
-  customerTokenV1: ICustomerTokenV1;
-  orderManagementV1: IOrderManagementV1;
+export class Klarna {
+  checkoutV3: CheckoutV3;
+  customerTokenV1: CustomerTokenV1;
+  orderManagementV1: OrderManagementV1;
 
   constructor(config: IConfig) {
     let { apiEndpoint } = config;
