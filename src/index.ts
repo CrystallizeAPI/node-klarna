@@ -4,6 +4,8 @@ import { CustomerTokenV1 } from './api/customer-token-v1';
 import { OrderManagementV1 } from './api/order-management-v1';
 import { optionalLoggerFactory } from './utils';
 import { Config } from './interface';
+import { validateConfig } from './validations';
+import { getBasicAuthHeader } from './utils/http';
 
 export * from './interface';
 export * from './crystallize-helpers';
@@ -14,33 +16,28 @@ export class Klarna {
   orderManagementV1: OrderManagementV1;
 
   constructor(config: Config) {
-    let { apiEndpoint } = config;
-    const { username, password } = config;
+    const validationError = validateConfig(config);
+
+    if (validationError) {
+      throw validationError;
+    }
 
     const logger = optionalLoggerFactory(config.logs);
 
-    if (!apiEndpoint || apiEndpoint === '') {
+    const { apiEndpoint } = config;
+    const defaultApiEndpoint = 'api.playground.klarna.com';
+
+    if (!apiEndpoint) {
       logger.warn(
         '\x1b[33m',
-        '⚠️   apiEndpoint field not provided while initializing library. Default API endpoint set to: https://api.playground.klarna.com [Test EU]',
+        `⚠️   apiEndpoint field not provided while initializing library. Default API endpoint set to: ${defaultApiEndpoint} [Test EU]`,
         '\x1b[0m'
       );
-      apiEndpoint = 'api.playground.klarna.com';
-    }
-
-    if (!username || username === '') {
-      throw new Error('`username` is mandatory');
-    }
-
-    if (!password || password === '') {
-      throw new Error('`password` is mandatory');
     }
 
     const options: Options = {
-      apiEndpoint,
-      authorization: `Basic ${Buffer.from(`${username}:${password}`).toString(
-        'base64'
-      )}`,
+      apiEndpoint: apiEndpoint || defaultApiEndpoint,
+      authorization: getBasicAuthHeader(config),
       logger,
     };
 
