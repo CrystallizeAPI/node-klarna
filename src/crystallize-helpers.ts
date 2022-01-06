@@ -138,13 +138,9 @@ export class CrystallizeKlarnaHelpers {
   }
 
   isSubscription(lineItems: Array<CrystallizeLineItem>): boolean {
-    let hasSubscription: boolean = false;
-    lineItems.forEach((i: CrystallizeLineItem) => {
-      if (i?.subscriptionPlans?.length > 0 || i.isSubscriptionOnly === true) {
-        hasSubscription = true;
-      }
-    });
-    return hasSubscription;
+    return lineItems.some(
+      item => item.isSubscriptionOnly || item?.subscriptionPlans?.length > 0
+    );
   }
 
   getOrderBody(lineItems: Array<CrystallizeLineItem>): OrderBody {
