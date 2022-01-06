@@ -1,6 +1,6 @@
-import { IOrderLine } from '../checkout-v3';
+import { OrderLine } from '../checkout-v3';
 
-export interface ICustomerTokenBody {
+export interface CustomerTokenBody {
   attachment?: {
     body: string;
     content_type: string;
@@ -14,7 +14,7 @@ export interface ICustomerTokenBody {
   merchant_reference1?: string;
   merchant_reference2?: string;
   order_amount: number;
-  order_lines: IOrderLine[];
+  order_lines: OrderLine[];
   order_tax_amount: number;
   payment_method_reference?: string;
   purchase_currency: string;
