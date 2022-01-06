@@ -17,7 +17,7 @@ export class CheckoutV3 extends HttpRequest {
   */
   retrieveOrder(orderId: string): Promise<OrderResponse> {
     if (!orderId) {
-      console.warn(
+      this.logger.warn(
         '\x1b[33m',
         '⚠️   Order ID is required to fetch an order',
         '\x1b[0m'
@@ -31,7 +31,7 @@ export class CheckoutV3 extends HttpRequest {
   */
   updateOrder(orderId: string, body: OrderBody): Promise<OrderResponse> {
     if (!orderId) {
-      console.warn(
+      this.logger.warn(
         '\x1b[33m',
         '⚠️   Order ID is required to update an order',
         '\x1b[0m'
