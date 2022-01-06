@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { Klarna, IKlarnaInstance } from '../src';
+import { Klarna } from '../src';
 
 dotenv.config();
 
@@ -7,7 +7,7 @@ const username = process.env.KLARNA_USERNAME;
 const password = process.env.KLARNA_PASSWORD;
 
 describe('checkout v3', () => {
-  let klarna: IKlarnaInstance;
+  let klarna: Klarna;
   let orderId: string;
 
   beforeAll(done => {

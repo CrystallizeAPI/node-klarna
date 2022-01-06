@@ -1,18 +1,12 @@
 import { HttpRequest } from '../../http-request';
 import { IOrderBody, IOrderResponse } from './interface';
 
-export interface ICheckoutV3 {
-  createOrder(body: IOrderBody): Promise<IOrderResponse>;
-  retrieveOrder(orderId: string): Promise<IOrderResponse>;
-  updateOrder(orderId: string, body: IOrderBody): Promise<IOrderResponse>;
-}
-
 /*
  * Documentation: https://developers.klarna.com/api/#checkout-api
  */
 export class CheckoutV3 extends HttpRequest {
   /*
-    Documentation: https://developers.klarna.com/api/#checkout-api-create-a-new-order  
+    Documentation: https://developers.klarna.com/api/#checkout-api-create-a-new-order
   */
   createOrder(body: IOrderBody): Promise<IOrderResponse> {
     return this.invoke(`POST`, `/checkout/v3/orders`, body);
