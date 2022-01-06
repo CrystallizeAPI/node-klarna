@@ -1,3 +1,22 @@
+# [6.0.0](https://github.com/CrystallizeAPI/node-klarna/compare/v5.0.0...v6.0.0) (2022-01-06)
+
+
+### Bug Fixes
+
+* missing configuration for logs ([35c056c](https://github.com/CrystallizeAPI/node-klarna/commit/35c056ceb43cfb92de0db5cae6db01219329bf03))
+* module interface exports ([3667122](https://github.com/CrystallizeAPI/node-klarna/commit/3667122ab26dc61484307ee165afc1b025577a58))
+* redundant class interface ([e0b76bb](https://github.com/CrystallizeAPI/node-klarna/commit/e0b76bb557192346f4abe95bd2e580daf83c106d))
+* redundant interface prefix ([d234b3d](https://github.com/CrystallizeAPI/node-klarna/commit/d234b3d12c21679518da7d806fcfacfdb97ee675))
+
+
+### BREAKING CHANGES
+
+* Logs are disabled by default now.
+You can enable them by adding `logs: { enabled: true }` or `logs: { useNodeEnv: true }`
+* Interfaces have same name now as classes, e.g. `IConfig` was changed to `Config`
+* Interfaces are not exported anymore.
+It is necessary to use class as a type directly, e.g. `Klarna` instead of `IKlarnaInstance`
+
 # [5.0.0](https://github.com/CrystallizeAPI/node-klarna/compare/v4.9.1...v5.0.0) (2022-01-05)
 
 
