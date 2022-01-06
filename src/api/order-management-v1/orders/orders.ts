@@ -1,6 +1,6 @@
-import { HttpRequest, IResponse } from '../../../http-request';
+import { HttpRequest, Response } from '../../../http-request';
 
-interface IUpdateMerchantReferenceBody {
+interface UpdateMerchantReferenceBody {
   merchant_reference1: string;
   merchant_reference2: string;
 }
@@ -9,7 +9,7 @@ export class Orders extends HttpRequest {
   /**
    * https://developers.klarna.com/api/#order-management-api-acknowledge-order
    */
-  acknowledge(orderId: string): Promise<IResponse> {
+  acknowledge(orderId: string): Promise<Response> {
     return this.invoke(
       `POST`,
       `/ordermanagement/v1/orders/${orderId}/acknowledge`
@@ -19,7 +19,7 @@ export class Orders extends HttpRequest {
   /**
    * https://developers.klarna.com/api/#order-management-api-cancel-order
    */
-  cancel(orderId: string): Promise<IResponse> {
+  cancel(orderId: string): Promise<Response> {
     return this.invoke(
       `POST`,
       `/ordermanagement/v1/orders/${orderId}/cancel`,
@@ -30,7 +30,7 @@ export class Orders extends HttpRequest {
   /**
    * https://developers.klarna.com/api/#order-management-api-release-remaining-authorization
    */
-  releaseRemainingAuthorization(orderId: string): Promise<IResponse> {
+  releaseRemainingAuthorization(orderId: string): Promise<Response> {
     return this.invoke(
       `POST`,
       `/ordermanagement/v1/orders/${orderId}/release-remaining-authorization`,
@@ -43,8 +43,8 @@ export class Orders extends HttpRequest {
    */
   updateMerchantReference(
     orderId: string,
-    body: IUpdateMerchantReferenceBody
-  ): Promise<IResponse> {
+    body: UpdateMerchantReferenceBody
+  ): Promise<Response> {
     return this.invoke(
       `PATCH`,
       `/ordermanagement/v1/orders/${orderId}/merchant-references`,
@@ -52,7 +52,7 @@ export class Orders extends HttpRequest {
     );
   }
 
-  getOrder(orderId: string): Promise<IResponse> {
+  getOrder(orderId: string): Promise<Response> {
     return this.invoke(`GET`, `/ordermanagement/v1/orders/${orderId}`);
   }
 }

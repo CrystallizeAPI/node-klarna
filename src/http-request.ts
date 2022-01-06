@@ -2,12 +2,12 @@ import * as https from 'https';
 import * as http from 'http';
 import { parseJSON } from './utils';
 
-export interface IOptions {
+export interface Options {
   authorization: string;
   apiEndpoint: string;
 }
 
-export interface IResponse {
+export interface Response {
   statusCode: number;
   error?: string | Error | any;
   response?: string | any;
@@ -17,7 +17,7 @@ export class HttpRequest {
   authorization: string;
   hostname: string;
 
-  constructor(options: IOptions) {
+  constructor(options: Options) {
     this.authorization = options.authorization;
     this.hostname = options.apiEndpoint;
   }
@@ -26,7 +26,7 @@ export class HttpRequest {
     httpMethod: string,
     path: string,
     requestBody = {}
-  ): Promise<IResponse> {
+  ): Promise<Response> {
     return new Promise(resolve => {
       const options: http.RequestOptions = {
         method: httpMethod,

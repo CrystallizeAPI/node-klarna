@@ -1,7 +1,7 @@
 import { Orders } from './orders';
 import { Captures } from './captures';
 import { Refunds } from './refunds';
-import { IOptions } from '../../http-request';
+import { Options } from '../../http-request';
 
 /**
  * Docs: https://developers.klarna.com/api/#order-management-api
@@ -11,7 +11,7 @@ export class OrderManagementV1 {
   captures: Captures;
   refunds: Refunds;
 
-  constructor(options: IOptions) {
+  constructor(options: Options) {
     this.orders = new Orders(options);
     this.captures = new Captures(options);
     this.refunds = new Refunds(options);

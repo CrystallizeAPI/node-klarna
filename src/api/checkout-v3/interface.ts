@@ -1,6 +1,6 @@
-import { IResponse } from '../../http-request';
+import { Response } from '../../http-request';
 
-export interface IOrderLine {
+export interface OrderLine {
   type?: string;
   reference?: string;
   name: string;
@@ -15,28 +15,28 @@ export interface IOrderLine {
   merchant_data?: string;
 }
 
-export interface IMerchantUrls {
+export interface MerchantUrls {
   terms: string;
   checkout: string;
   confirmation: string;
   push: string;
 }
 
-export interface IOrderBody {
+export interface OrderBody {
   purchase_country: string;
   purchase_currency: string;
   locale: string;
   order_amount: number;
   order_tax_amount: number;
-  order_lines: Array<IOrderLine>;
-  merchant_urls: IMerchantUrls;
+  order_lines: Array<OrderLine>;
+  merchant_urls: MerchantUrls;
   recurring?: boolean;
-  shipping_options?: IShippingOption[];
+  shipping_options?: ShippingOption[];
   merchant_reference1?: string;
   merchant_reference2?: string;
 }
 
-export interface IShippingOption {
+export interface ShippingOption {
   id: string;
   name: string;
   description?: string;
@@ -61,14 +61,14 @@ export interface IShippingOption {
     pickup_location?: {
       id: string;
       name: string;
-      address: IAddress;
+      address: Address;
     };
     tms_reference?: string;
   };
   merchant_data?: string;
 }
 
-export interface IAddress {
+export interface Address {
   given_name?: string;
   family_name?: string;
   email?: string;
@@ -86,7 +86,7 @@ export interface IAddress {
   care_of?: string;
 }
 
-export interface IOrder {
+export interface Order {
   order_id: string;
   status: string;
   purchase_country: string;
@@ -97,21 +97,21 @@ export interface IOrder {
   locale: string;
   order_amount: number;
   order_tax_amount: number;
-  order_lines: Array<IOrderLine>;
-  merchant_urls: IMerchantUrls;
-  billing_address: IAddress;
-  shipping_address: IAddress;
+  order_lines: Array<OrderLine>;
+  merchant_urls: MerchantUrls;
+  billing_address: Address;
+  shipping_address: Address;
   html_snippet: string;
   recurring: boolean;
   recurring_token: string;
   recurring_description: string;
   merchant_reference1?: string;
   merchant_reference2?: string;
-  selected_shipping_option?: IShippingOption;
+  selected_shipping_option?: ShippingOption;
 }
 
-export interface IOrderResponse extends IResponse {
+export interface OrderResponse extends Response {
   statusCode: number;
   error?: Error | any;
-  response?: IOrder;
+  response?: Order;
 }

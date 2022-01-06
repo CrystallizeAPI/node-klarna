@@ -1,20 +1,20 @@
 import {
-  IMerchantUrls,
-  IShippingOption,
-  IOrderBody,
-  IOrderLine,
+  MerchantUrls,
+  ShippingOption,
+  OrderBody,
+  OrderLine,
 } from './api/checkout-v3';
 
-export interface IDefaults {
+export interface Defaults {
   host_uri: string;
   purchase_country?: string;
   purchase_currency?: string;
   locale?: string;
-  merchant_urls?: IMerchantUrls;
-  shipping_options?: Array<IShippingOption>;
+  merchant_urls?: MerchantUrls;
+  shipping_options?: Array<ShippingOption>;
 }
 
-interface ISubscriptionPlan {
+interface SubscriptionPlan {
   id: string;
   initialPeriod: number;
   initialPrice: number;
@@ -23,12 +23,12 @@ interface ISubscriptionPlan {
   recurringPrice: number;
 }
 
-export interface IAttribute {
+export interface Attribute {
   attributes: string;
   value: string;
 }
 
-export interface ICrystallizeLineItem {
+export interface CrystallizeLineItem {
   id: string;
   name: string;
   basketId: string;
@@ -40,7 +40,7 @@ export interface ICrystallizeLineItem {
   quantity: number;
   stock: number;
   isSubscriptionOnly: boolean;
-  subscriptionPlans: Array<ISubscriptionPlan>;
+  subscriptionPlans: Array<SubscriptionPlan>;
   vatAmount: number;
   taxGroup: {
     name: string;
@@ -50,16 +50,16 @@ export interface ICrystallizeLineItem {
     url: string;
   };
   variantId: string;
-  attributes: IAttribute[];
+  attributes: Attribute[];
 }
 
-interface IParsedOrderLines {
-  order_lines: Array<IOrderLine>;
+interface ParsedOrderLines {
+  order_lines: Array<OrderLine>;
   order_tax_amount: number;
   order_amount: number;
 }
 
-function getPackageDefaults(host_uri: string): IDefaults {
+function getPackageDefaults(host_uri: string): Defaults {
   return {
     host_uri,
     purchase_country: 'NO',
@@ -86,9 +86,9 @@ function getPackageDefaults(host_uri: string): IDefaults {
 }
 
 export class CrystallizeKlarnaHelpers {
-  defaults: IDefaults;
+  defaults: Defaults;
 
-  constructor(defaults: IDefaults) {
+  constructor(defaults: Defaults) {
     if (!defaults?.host_uri) {
       console.warn(
         '\x1b[33m',
@@ -100,14 +100,12 @@ export class CrystallizeKlarnaHelpers {
     this.defaults = defaults;
   }
 
-  getKlarnaOrderLines(
-    lineItems: Array<ICrystallizeLineItem>
-  ): IParsedOrderLines {
+  getKlarnaOrderLines(lineItems: Array<CrystallizeLineItem>): ParsedOrderLines {
     let order_tax_amount = 0;
     let order_amount = 0;
 
-    const order_lines: Array<IOrderLine> = lineItems.map(
-      (item: ICrystallizeLineItem) => {
+    const order_lines: Array<OrderLine> = lineItems.map(
+      (item: CrystallizeLineItem) => {
         order_tax_amount += item.vatAmount * 100;
 
         // Klarna represents numbers as number * 100
@@ -139,9 +137,9 @@ export class CrystallizeKlarnaHelpers {
     };
   }
 
-  isSubscription(lineItems: Array<ICrystallizeLineItem>): boolean {
+  isSubscription(lineItems: Array<CrystallizeLineItem>): boolean {
     let hasSubscription: boolean = false;
-    lineItems.forEach((i: ICrystallizeLineItem) => {
+    lineItems.forEach((i: CrystallizeLineItem) => {
       if (i?.subscriptionPlans?.length > 0 || i.isSubscriptionOnly === true) {
         hasSubscription = true;
       }
@@ -149,18 +147,18 @@ export class CrystallizeKlarnaHelpers {
     return hasSubscription;
   }
 
-  getOrderBody(lineItems: Array<ICrystallizeLineItem>): IOrderBody {
+  getOrderBody(lineItems: Array<CrystallizeLineItem>): OrderBody {
     const {
       order_lines,
       order_amount,
       order_tax_amount,
-    }: IParsedOrderLines = this.getKlarnaOrderLines(lineItems);
-    const packageDefaults: IDefaults = getPackageDefaults(
+    }: ParsedOrderLines = this.getKlarnaOrderLines(lineItems);
+    const packageDefaults: Defaults = getPackageDefaults(
       this.defaults.host_uri
     );
 
     // Something to look into: Will the merchant urls or purchase currency be different for separate orders?
-    const orderBody: IOrderBody = {
+    const orderBody: OrderBody = {
       purchase_country:
         this.defaults?.purchase_country || packageDefaults.purchase_currency!,
       purchase_currency:

@@ -1,10 +1,10 @@
-import { IOptions } from './http-request';
+import { Options } from './http-request';
 import { CheckoutV3 } from './api/checkout-v3';
 import { CustomerTokenV1 } from './api/customer-token-v1';
 import { OrderManagementV1 } from './api/order-management-v1';
 export * from './crystallize-helpers';
 
-interface IConfig {
+interface Config {
   username: string;
   password: string;
   apiEndpoint?: string;
@@ -15,7 +15,7 @@ export class Klarna {
   customerTokenV1: CustomerTokenV1;
   orderManagementV1: OrderManagementV1;
 
-  constructor(config: IConfig) {
+  constructor(config: Config) {
     let { apiEndpoint } = config;
     const { username, password } = config;
 
@@ -36,7 +36,7 @@ export class Klarna {
       throw new Error('`password` is mandatory');
     }
 
-    const options: IOptions = {
+    const options: Options = {
       apiEndpoint,
       authorization: `Basic ${Buffer.from(`${username}:${password}`).toString(
         'base64'
